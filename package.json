@@ -1,0 +1,19 @@
+{
+  "name": "my-personal-website-backend",
+  "version": "1.0.0",
+  "description": "this is my backend for my personal website with nodejs and mangodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rukundo725/My-Personal-Website-backend.git"
+  },
+  "author": "Germain Rukundo (Owner)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rukundo725/My-Personal-Website-backend/issues"
+  },
+  "homepage": "https://github.com/Rukundo725/My-Personal-Website-backend#readme"
+}
