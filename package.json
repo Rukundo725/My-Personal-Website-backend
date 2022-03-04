@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Rukundo725/My-Personal-Website-backend/issues"
   },
-  "homepage": "https://github.com/Rukundo725/My-Personal-Website-backend#readme"
+  "homepage": "https://github.com/Rukundo725/My-Personal-Website-backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
