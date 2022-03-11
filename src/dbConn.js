@@ -10,11 +10,3 @@ const connectDb = async () =>{
 }
 
 export default connectDb;
-
-
-
-
-
-
-//   .then(result => app.listen(3000))
-//   .catch(err => console.log(err));
