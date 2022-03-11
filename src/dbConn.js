@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
 // connect to mongodb & listen for requests
-const dbURI = "mongodb+srv://owner:owner123@cluster0.zqwo7.mongodb.net/MyPersonalWebsite?retryWrites=true&w=majority";
 const connectDb = async () =>{
     try{
-        await mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        await mongoose.connect(process.env.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
     }catch(err){
         console.error(err);
     }
