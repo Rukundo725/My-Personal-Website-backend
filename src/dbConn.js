@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import 'dotenv/config' 
+import express from 'express'
 // connect to mongodb & listen for requests
 const connectDb = async () =>{
     try{
