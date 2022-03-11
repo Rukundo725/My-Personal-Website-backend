@@ -11,3 +11,12 @@ export const createArticle = async (req, res) => {
   }
 };
 
+//get one Article
+export const getOneArticle = async (req, res) => {
+  try {
+    const oneArticle = await Article.findOne({ _id: req.params.id });
+    res.status(200).json(oneArticle);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
