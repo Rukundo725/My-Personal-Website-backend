@@ -5,9 +5,11 @@ import connectDb from './dbConn';
 import blogRoute from "./Routers/blog";
 
 
-
-
 const app = express();
+
+// Connect to MongoDB
+connectDb();
+
 
 // middleware 
 app.use(express.json());
@@ -22,3 +24,6 @@ mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
     app.listen(process.env.port || port, () => console.log(`Server running on port ${port}`));
 });
+
+export default app;
+
