@@ -1,11 +1,11 @@
 import express from "express";
-import {
-  createArticle} from "../Controllers/blog";
+import { createArticle, getOneArticle } from "../Controllers/blog";
 
 
 const router = express.Router();
 
 router.post("/add", createArticle);
+router.get("/:id", getOneArticle);
 
 
 
