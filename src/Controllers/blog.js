@@ -30,3 +30,17 @@ export const deleteArticle = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+
+//update Article
+export const updateArticle = async (req, res) => {
+  try {
+    await Article.findOneAndUpdate({ _id: req.params.id }, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json("Article updated");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
