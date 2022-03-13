@@ -20,3 +20,13 @@ export const getOneArticle = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+//delete Article
+export const deleteArticle = async (req, res) => {
+  try {
+    await Article.findOneAndDelete({ _id: req.params.id });
+    res.status(200).json("Article is deleted");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
