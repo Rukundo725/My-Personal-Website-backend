@@ -44,3 +44,13 @@ export const updateArticle = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+//get All posts
+export const getAllArticle = async (req, res) => {
+  try {
+    const allArticle = await Article.find();
+    res.status(200).json(allArticle);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
