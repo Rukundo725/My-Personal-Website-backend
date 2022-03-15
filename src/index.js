@@ -1,9 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import dotenv from "dotenv";
+import authRoute from "./Routers/Auth";
+import Jwt from 'jsonwebtoken';
+import verifyToken from "./Routers/Auth";
 import connectDb from './dbConn';
 import blogRoute from "./Routers/blog";
-
 
 const app = express();
 
@@ -14,8 +17,8 @@ connectDb();
 // middleware 
 app.use(express.json());
 app.use(bodyParser.json());
+app.use('/api/user', authRoute);
 app.use('/api/blog', blogRoute);
-
 const port = 4000;
 
 // Connect to MongoDB
