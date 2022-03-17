@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node src/index",
     "start": "nodemon --exec babel-node src/index",
-    "test": "mocha --timeout 50000 --require @babel/polyfill --require @babel/register 'tests/appTest.js'",
-    
+    "test": "echo 'NodeJS:' && npx node -v && nyc --reporter=html --reporter=text --reporter=text-summary mocha  --timeout 50000 --require @babel/polyfill --require @babel/register 'tests/appTest.js'",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -41,7 +40,6 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.4",
-    "npm-package-json-lint": "^6.0.3"
+    "mongoose": "^6.2.4"
   }
 }

@@ -5,8 +5,8 @@ node_js:
 env:
   global:
     - NODE_ENV=development
-# before_install:
-#   - export TZ=Asia/Jakarta
+before_install:
+  - export TZ=Asia/Jakarta
 install:
   - npm install
 script:
