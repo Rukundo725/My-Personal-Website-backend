@@ -7,8 +7,8 @@
     "dev": "nodemon --exec babel-node src/index",
     "start": "nodemon --exec babel-node src/index",
     "test": "mocha --timeout 50000 --require @babel/polyfill --require @babel/register 'tests/appTest.js'",
-    "test:coverage": "jest --coverage 'tests/appTest.js'",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
+    "test:coverage": "mocha --coverage 'tests/appTest.js'",
+    "test:coveralls": "mocha --coverage && coveralls < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
