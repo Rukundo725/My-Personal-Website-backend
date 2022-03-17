@@ -7,8 +7,8 @@
     "dev": "nodemon --exec babel-node src/index",
     "start": "nodemon --exec babel-node src/index",
     "test": "mocha --timeout 50000 --require @babel/polyfill --require @babel/register 'tests/appTest.js'",
-    "test:coverage": "mocha --coverage 'tests/appTest.js'",
-    "test:coveralls": "mocha --coverage && coveralls < coverage/lcov.info"
+    
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "mocha": "^9.2.2",
     "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
     "supertest": "^6.2.2"
   },
   "dependencies": {

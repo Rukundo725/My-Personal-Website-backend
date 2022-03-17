@@ -1,13 +1,14 @@
-sudo: false
-
 language: node_js
-
-node_js: 
-  - node
-install: 
-  - npm ci
+node_js:
+  - "node"
+  - "10"
+env:
+  global:
+    - NODE_ENV=development
+# before_install:
+#   - export TZ=Asia/Jakarta
+install:
+  - npm install
 script:
-  # npm run lint 
-  - npm run test:coveralls
-notifications:
-  email: false
+  - npm test
+after_success: npm run coverage
