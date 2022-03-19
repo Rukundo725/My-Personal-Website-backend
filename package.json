@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node src/index",
     "start": "nodemon --exec babel-node src/index",
-    "test": "echo 'NodeJS:' && npx node -v && nyc --reporter=html --reporter=text --reporter=text-summary --reporter=json-summary mocha  --timeout 500000 --require @babel/polyfill --require @babel/register 'tests/appTest.js'",
+    "test": "echo 'NodeJS:' && npx node -v && nyc --reporter=html --reporter=text --reporter=text-summary --reporter=json-summary mocha  --timeout 50000 --require @babel/polyfill --require @babel/register 'tests/appTest.js'",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coverage:badge": "coverage-badge-creator --config './badge-coverage-config.json'",
     "heroku-postbuild": "npm run build"
