@@ -6,9 +6,12 @@ env:
   global:
     - NODE_ENV=development
 before_install:
-  - export TZ=Asia/Jakarta
+   - pip install --user codecov
 install:
   - npm install
 script:
   - npm test
-after_success: npm run coverage
+after_success: 
+   - codecov --file coverage/lcov.info --disable search
+
+ 
