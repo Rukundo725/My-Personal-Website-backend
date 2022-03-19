@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Rukundo725/My-Personal-Website-backend.png?branch=Testing)](https://travis-ci.com/Rukundo725/My-Personal-Website-backend)
+
 Module Summary
 You are expected to create all the endpoints required to meet all the requirements listed under the required features section and ensure that you persist data with a database. You are  required to use mongoose which will  help you write to and read from your mongoDb database. The endpoints are to be secured with JWT.
 
