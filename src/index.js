@@ -19,13 +19,13 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use('/api/user', authRoute);
 app.use('/api/blog', blogRoute);
-const port = 4000;
+const port = process.env.PORT ||4000;
 
 // Connect to MongoDB
 connectDb();
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
-    app.listen(process.env.port || port, () => console.log(`Server running on port ${port}`));
+    app.listen( port, () => console.log(`Server running on port ${port}`));
 });
 
 export default app;
