@@ -10,7 +10,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coverage:badge": "coverage-badge-creator --config './badge-coverage-config.json'",
     "make-badges": "istanbul-badges-readme",
-    "heroku-postbuild": "npm install"
+    "heroku-postbuild": "npm build --exec babel-node src/index"
   },
   "repository": {
     "type": "git",
