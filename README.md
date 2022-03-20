@@ -1,10 +1,12 @@
-![](https://img.shields.io/badge/Coverage-86%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)
-
-[![Build Status](https://travis-ci.com/github/Rukundo725/My-Personal-Website-backend.png?branch=Testing)](https://travis-ci.com/github/Rukundo725/My-Personal-Website-backend)
-
+![coverage status](https://img.shields.io/badge/Coverage-86%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)
+![Statements](https://img.shields.io/badge/statements-84.9%25-yellow.svg?style=flat)
+![Branches](https://img.shields.io/badge/branches-81.48%25-yellow.svg?style=flat)
+![Functions](https://img.shields.io/badge/functions-92.59%25-brightgreen.svg?style=flat)
+![Lines](https://img.shields.io/badge/lines-83.5%25-yellow.svg?style=flat)
+[![Travis Build Status](https://app.travis-ci.com/Rukundo725/My-Personal-Website-backend.svg?branch=main)](https://app.travis-ci.com/Rukundo725/My-Personal-Website-backend)
 ![Github workflow](https://github.com/Rukundo725/My-Personal-Website-backend/actions/workflows/CI.yml/badge.svg)
 
-![Travis Status](https://travis-ci.com/github/Rukundo725/My-Personal-Website-backend.png)
+
 
 # **Project Summary**
 You are expected to create all the endpoints required to meet all the requirements listed under the required features section and ensure that you persist data with a database. You are  required to use mongoose which will  help you write to and read from your mongoDb database. The endpoints are to be secured with JWT.
