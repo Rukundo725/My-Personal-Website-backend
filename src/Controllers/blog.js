@@ -3,10 +3,10 @@ import Article from "../../models/blog";
 export const createArticle = async (req, res) => {
   try {
     await Article.create(req.body);
-    res.status(200).json("Article added");
+    res.status(201).json({ status: "Created", code: "201",message: "Article added" });
   } catch (error) {
     console.log(error.message);
-    res.status(500).json(error);
+    res.status(500).json({ status: "error", code: "500",message: "internal_server_error" });
 
   }
 };
@@ -15,9 +15,9 @@ export const createArticle = async (req, res) => {
 export const getOneArticle = async (req, res) => {
   try {
     const oneArticle = await Article.findOne({ _id: req.params.id });
-    res.status(200).json(oneArticle);
+    res.status(200).json({status: "success", code: "200", Article: oneArticle});
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ status: "error", code: "500",message: "internal_server_error" });
   }
 };
 
@@ -25,9 +25,9 @@ export const getOneArticle = async (req, res) => {
 export const deleteArticle = async (req, res) => {
   try {
     await Article.findOneAndDelete({ _id: req.params.id });
-    res.status(200).json("Article is deleted");
+    res.status(200).json({ status: "success", code: "200",message: "Article is deleted" });
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({status: "error", code: "500" , error: "Internal server error", message: "Article not found"});
   }
 };
 
@@ -39,9 +39,9 @@ export const updateArticle = async (req, res) => {
       new: true,
       runValidators: true,
     });
-    res.status(200).json("Article updated");
+    res.status(200).json({ status: "success", code: "200",message: "Article is Updated" });
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ status: "error", code: "500",message: "internal_server_error", message: "Article not found" });
   }
 };
 
@@ -49,8 +49,8 @@ export const updateArticle = async (req, res) => {
 export const getAllArticle = async (req, res) => {
   try {
     const allArticle = await Article.find();
-    res.status(200).json(allArticle);
+    res.status(200).json({status: "success", code: "200", Articles: allArticle});
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ status: "error", code: "500",message: "internal_server_error" });
   }
 };
