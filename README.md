@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Coverage-92%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)))
+![](https://img.shields.io/badge/Coverage-92%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)
 ![Statements](https://img.shields.io/badge/statements-92.45%25-brightgreen.svg?style=flat)
 ![Branches](https://img.shields.io/badge/branches-85.18%25-yellow.svg?style=flat)
 ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat)
