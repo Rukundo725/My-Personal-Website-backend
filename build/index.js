@@ -13,13 +13,13 @@ var _mongoose = _interopRequireDefault(require("mongoose"));
 
 var _dotenv = _interopRequireDefault(require("dotenv"));
 
-var _Auth = _interopRequireDefault(require("../src/Routers/Auth"));
+var _Auth = _interopRequireDefault(require("../src/Routers/Auth.js"));
 
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
-var _dbConn = _interopRequireDefault(require("../src/dbConn"));
+var _dbConn = _interopRequireDefault(require("../src/dbConn.js"));
 
-var _blog = _interopRequireDefault(require("../src/Routers/blog"));
+var _blog = _interopRequireDefault(require("../src/Routers/blog.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
