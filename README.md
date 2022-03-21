@@ -1,8 +1,8 @@
-![coverage status](https://img.shields.io/badge/Coverage-86%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=![](https://img.shields.io/badge/Coverage-90%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$))
-![Statements](https://img.shields.io/badge/statements-89.62%25-yellow.svg?style=flat)
-![Branches](https://img.shields.io/badge/branches-81.48%25-yellow.svg?style=flat)
+![](https://img.shields.io/badge/Coverage-92%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)))
+![Statements](https://img.shields.io/badge/statements-92.45%25-brightgreen.svg?style=flat)
+![Branches](https://img.shields.io/badge/branches-85.18%25-yellow.svg?style=flat)
 ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat)
-![Lines](https://img.shields.io/badge/lines-88.65%25-yellow.svg?style=flat)
+![Lines](https://img.shields.io/badge/lines-91.75%25-brightgreen.svg?style=flat)
 [![Travis Build Status](https://app.travis-ci.com/Rukundo725/My-Personal-Website-backend.svg?branch=main)](https://app.travis-ci.com/Rukundo725/My-Personal-Website-backend)
 ![Github workflow](https://github.com/Rukundo725/My-Personal-Website-backend/actions/workflows/CI.yml/badge.svg)
 

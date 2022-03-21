@@ -3,6 +3,7 @@ import chaiHttp from "chai-http";
 import app from "../src/index";
 import 'dotenv/config'; 
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 
 chai.should();
@@ -131,22 +132,34 @@ describe("Blog API", ()=>{
         })
         // // in case we don't include any property of the object
 
-        // it("It should not POST an article It will throw an 500 error status", (done)=>{
-        //     const article ={
+        
+        it("it should not CREATE a new blog due to uncoplete data", (done) => {
+            const article ={
 
-        //         "title": "new blog from testing",
-        //         "snippet": "about my new blog after testing"
-               
+                "title": "new blog from testing",
+                "snippet": "about my new blog after testing",
+              
 
-        //     };
-        //     chai.request(app)
-        //         .post("/api/blog/add")
-        //         .send(article)
-        //         .end((err, response)=> {
-        //             response.should.have.status(500);
-        //         done();
-        //         })
-        // })
+                };
+         
+              jwt.sign(
+                { email: process.env.email, password: process.env.password },
+                process.env.SECRET,
+                { expiresIn: "1250s" },
+                (err, token) => {
+                  // console.log(token);
+                  chai
+                    .request(app)
+                    .post("/api/blog/add")
+                    .send(article)
+                    .set("Authorization", `bearer ${token}`)
+                    .end((err, res) => {
+                        res.should.have.status(500);
+                      
+                      done();
+                    });
+                });
+            });
 
         // posting a new article 
 
@@ -157,7 +170,7 @@ describe("Blog API", ()=>{
                 "snippet": "about my new blog after testing",
                 "body": "more about my test blog"
 
-            };
+                };
          
               jwt.sign(
                 { email: process.env.email, password: process.env.password },
@@ -178,7 +191,7 @@ describe("Blog API", ()=>{
                       done();
                     });
                 });
-          });
+            });
     })
 
     
@@ -289,30 +302,28 @@ describe("Blog API", ()=>{
 
         // in case we pass the wrong id 
 
-        // it("it should not DELETE a blog given the id due to wrong id", (done) => {
-        //     const ArticleId = "622ac9e21dcd4a8b6c2868";
-        //       jwt.sign(
-        //         { email: process.env.email, password: process.env.password },
-        //         process.env.SECRET,
-        //         { expiresIn: "1250s" },
-        //         (err, token) => {
-        //           // console.log(token);
-        //           chai.request(app)
-        //         .del("/api/blog/" + ArticleId)
-        //         .end((err, response)=> {
-        //             response.should.have.status(500);
-                
-        //         done();
-        //         })
-        //         });
-        //   });
+        it("it should throw an error due to worng id", (done) => {
+              jwt.sign(
+                { email: process.env.email, password: process.env.password },
+                process.env.SECRET,
+                { expiresIn: "1250s" },
+                (err, token) => {
+                  // console.log(token);
+                  chai
+                    .request(app)
+                    .del("/api/blog/"+ "622ac9e21" )
+                    .set("Authorization", `bearer ${token}`)
+                    .end((err, res) => {
+                      res.should.have.status(500);
+                      done();
+                    });
+                });
+          });
 
         // it should DELETE a blog given the id 
 
         it("it should DELETE a blog given the id", (done) => {
             const ArticleId = "622ac9e21dcd4a8b6c2868a6";
-        
-         
               jwt.sign(
                 { email: process.env.email, password: process.env.password },
                 process.env.SECRET,
@@ -364,19 +375,25 @@ describe('Login Routes TEST', () => {
             // in case we pass a wrong url 
 
             it("It should not create a user due to wrong url", (done)=>{
+                const password1 = process.env.password
+                const salt = bcrypt.genSalt(10);
+                const hashedPass = bcrypt.hash(password1, salt);
                 const CreateUser = {
                     username: process.env.username,
                     email: process.env.email,
-                    password: process.env.password
-                };
+                    password:hashedPass
+                    
+                }
                 chai.request(app)
-                    .put("/api/user/reg")
+                    .post("/api/user/reg")
                     .send(CreateUser)
                     .end((err, response)=> {
                         response.should.have.status(404); 
                     done();
                     })
             })
+
+
 
         });
     
