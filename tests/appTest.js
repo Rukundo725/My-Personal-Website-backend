@@ -1,6 +1,8 @@
 import chai from "chai";
 import chaiHttp from "chai-http";
 import app from "../src/index";
+import 'dotenv/config'; 
+import jwt from "jsonwebtoken";
 
 
 chai.should();
@@ -18,7 +20,8 @@ describe("Blog API", ()=>{
                 .get("/api/blog/")
                 .end((err, response)=> {
                     response.should.have.status(200);
-                    response.body.should.be.a('array');
+                    response.body.should.be.a('object');
+                    response.body.should.have.property('Articles');
                  
                 done();
                 });
@@ -49,13 +52,8 @@ describe("Blog API", ()=>{
                 .end((err, response)=> {
                     response.should.have.status(200);
                     response.body.should.be.a('object');
-                    response.body.should.have.property('_id');
-                    response.body.should.have.property('_id').eq("622acf9615c4ef8e29ceee83");
-                    response.body.should.have.property('title');
-                    response.body.should.have.property('snippet');
-                    response.body.should.have.property('createdAt');
-                    response.body.should.have.property('updatedAt');
-                    response.body.should.have.property('__v');
+                    response.body.should.have.property('Article');
+                    
                       
                 done();
                 })
@@ -93,7 +91,7 @@ describe("Blog API", ()=>{
     // testing the  post new  article api 
 
     describe("POST /api/blog/add", () =>{
-        it("It should POST an article by id", (done)=>{
+        it("It should not POST an article by id due to authentication error 403", (done)=>{
             const article ={
 
                 "title": "new blog from testing",
@@ -105,9 +103,9 @@ describe("Blog API", ()=>{
                 .post("/api/blog/add")
                 .send(article)
                 .end((err, response)=> {
-                    response.should.have.status(200);
-                    response.body.should.eq("Article added");
-                    response.body.should.be.a('string');
+                    response.should.have.status(403);
+                    // response.body.should.eq("Article added");
+                    // response.body.should.be.a('object');
                     
                 done();
                 })
@@ -131,24 +129,56 @@ describe("Blog API", ()=>{
                 done();
                 })
         })
-        // in case we pass don't include any property of the object
+        // // in case we don't include any property of the object
 
-        it("It should not POST an article It will throw an 500 error status", (done)=>{
+        // it("It should not POST an article It will throw an 500 error status", (done)=>{
+        //     const article ={
+
+        //         "title": "new blog from testing",
+        //         "snippet": "about my new blog after testing"
+               
+
+        //     };
+        //     chai.request(app)
+        //         .post("/api/blog/add")
+        //         .send(article)
+        //         .end((err, response)=> {
+        //             response.should.have.status(500);
+        //         done();
+        //         })
+        // })
+
+        // posting a new article 
+
+        it("it should CREATE a new blog", (done) => {
             const article ={
 
                 "title": "new blog from testing",
-                "snippet": "about my new blog after testing"
-               
+                "snippet": "about my new blog after testing",
+                "body": "more about my test blog"
 
             };
-            chai.request(app)
-                .post("/api/blog/add")
-                .send(article)
-                .end((err, response)=> {
-                    response.should.have.status(500);
-                done();
-                })
-        })
+         
+              jwt.sign(
+                { email: process.env.email, password: process.env.password },
+                process.env.SECRET,
+                { expiresIn: "1250s" },
+                (err, token) => {
+                  // console.log(token);
+                  chai
+                    .request(app)
+                    .post("/api/blog/add")
+                    .send(article)
+                    .set("Authorization", `bearer ${token}`)
+                    .end((err, res) => {
+                      console.log({ res: res.body, status: res.status });
+                      res.should.have.status(201);
+                      res.body.should.be.a("object");
+                      res.body.should.have.property('message').eql("Article added");
+                      done();
+                    });
+                });
+          });
     })
 
     
@@ -157,7 +187,7 @@ describe("Blog API", ()=>{
     // testing the  put(modify)  article by ID  api 
 
     describe("PUT /api/blog/:id", () =>{
-        it("It should PUT an article by id", (done)=>{
+        it("It should not PUT an article by id due to unauthorized access", (done)=>{
             const ArticleId = "622ac9e21dcd4a8b6c2868a6";
             const article ={
 
@@ -170,9 +200,8 @@ describe("Blog API", ()=>{
                 .put("/api/blog/" + ArticleId)
                 .send(article)
                 .end((err, response)=> {
-                    response.should.have.status(200);
-                    response.body.should.be.a('string');
-                    response.body.should.eq("Article updated");
+                    response.should.have.status(403);
+                   
                 done();
                 })
         })
@@ -197,26 +226,37 @@ describe("Blog API", ()=>{
                 })
         })
 
-        // in case we pass the wrong id 
+        // modifying the blog
 
-        it("It should not PUT an article by id", (done)=>{
-            const ArticleId = "622ac9e21dcd4a8b6c2868";
+        it("it should Modify a blog given the id", (done) => {
+            const ArticleId = "622ac9e21dcd4a8b6c2868a6";
             const article ={
-
                 "title": "new blog from testing",
                 "snippet": "about my new blog after testing",
                 "body": "more about my test blog"
 
             };
-            chai.request(app)
-                .put("/api/blog/" + ArticleId)
-                .send(article)
-                .end((err, response)=> {
-                    response.should.have.status(500);
-                
-                done();
-                })
-        })
+         
+              jwt.sign(
+                { email: process.env.email, password: process.env.password },
+                process.env.SECRET,
+                { expiresIn: "1250s" },
+                (err, token) => {
+                  // console.log(token);
+                  chai
+                    .request(app)
+                    .put("/api/blog/" + ArticleId)
+                    .send(article)
+                    .set("Authorization", `bearer ${token}`)
+                    .end((err, res) => {
+                      console.log({ res: res.body, status: res.status });
+                      res.should.have.status(200);
+                      res.body.should.be.a("object");
+                      res.body.should.have.property("message").eql("Article is Updated");
+                      done();
+                    });
+                });
+          });
 
     })
 
@@ -225,15 +265,12 @@ describe("Blog API", ()=>{
     // testing the  delete  article by ID  api 
 
     describe("DEL /api/blog/:id", () =>{
-        it("It should DELETE an article by id", (done)=>{
+        it("It should not DELETE an article by id due to unauthorized access", (done)=>{
             const ArticleId = "622ac9e21dcd4a8b6c2868a6";
             chai.request(app)
                 .del("/api/blog/" + ArticleId)
                 .end((err, response)=> {
-                    response.should.have.status(200);
-                    response.body.should.be.a('string');
-                    response.body.should.eq("Article is deleted");
-                      
+                    response.should.have.status(403);    
                 done();
                 })
         })
@@ -252,16 +289,49 @@ describe("Blog API", ()=>{
 
         // in case we pass the wrong id 
 
-        it("It should not DELETE an article by id", (done)=>{
-            const ArticleId = "622ac9e21dcd4a8b6c2868";
-            chai.request(app)
-                .del("/api/blog/" + ArticleId)
-                .end((err, response)=> {
-                    response.should.have.status(500);
+        // it("it should not DELETE a blog given the id due to wrong id", (done) => {
+        //     const ArticleId = "622ac9e21dcd4a8b6c2868";
+        //       jwt.sign(
+        //         { email: process.env.email, password: process.env.password },
+        //         process.env.SECRET,
+        //         { expiresIn: "1250s" },
+        //         (err, token) => {
+        //           // console.log(token);
+        //           chai.request(app)
+        //         .del("/api/blog/" + ArticleId)
+        //         .end((err, response)=> {
+        //             response.should.have.status(500);
                 
-                done();
-                })
-        })
+        //         done();
+        //         })
+        //         });
+        //   });
+
+        // it should DELETE a blog given the id 
+
+        it("it should DELETE a blog given the id", (done) => {
+            const ArticleId = "622ac9e21dcd4a8b6c2868a6";
+        
+         
+              jwt.sign(
+                { email: process.env.email, password: process.env.password },
+                process.env.SECRET,
+                { expiresIn: "1250s" },
+                (err, token) => {
+                  // console.log(token);
+                  chai
+                    .request(app)
+                    .del("/api/blog/"+ ArticleId)
+                    .set("Authorization", `bearer ${token}`)
+                    .end((err, res) => {
+                      console.log({ res: res.body, status: res.status });
+                      res.should.have.status(200);
+                      res.body.should.be.a("object");
+                      res.body.should.have.property("message").eql("Article is deleted");
+                      done();
+                    });
+                });
+          });
 
     })
 
