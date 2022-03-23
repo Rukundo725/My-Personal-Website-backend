@@ -1,12 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import dotenv from "dotenv";
 import authRoute from "./Routers/Auth";
-import Jwt from 'jsonwebtoken';
-import verifyToken from "./Routers/Auth";
 import connectDb from './dbConn';
 import blogRoute from "./Routers/blog";
+import cors from "cors";
 
 const app = express();
 
@@ -15,6 +13,7 @@ connectDb();
 
 
 // middleware 
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use('/api/user', authRoute);
