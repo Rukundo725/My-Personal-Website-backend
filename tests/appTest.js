@@ -1,6 +1,6 @@
 import chai from "chai";
 import chaiHttp from "chai-http";
-import app from "../src/index";
+import app from "../src/index.js";
 import 'dotenv/config'; 
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
