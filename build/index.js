@@ -11,7 +11,7 @@ var _bodyParser = _interopRequireDefault(require("body-parser"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-var _Auth = _interopRequireDefault(require("./Routers/Auth"));
+var _Auth = _interopRequireDefault(require("../src/Routers/Auth"));
 
 var _dbConn = _interopRequireDefault(require("./dbConn"));
 
