@@ -33,5 +33,5 @@ jobs:
         EMAIL: ${{ secrets.EMAIL }}
         PASSWORD: ${{ secrets.PASSWORD }}
         USERNAME: ${{ secrets.USERNAME }}
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      # with:
+      #   github-token: ${{ secrets.GITHUB_TOKEN }}
