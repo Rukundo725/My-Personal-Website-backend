@@ -1,6 +1,6 @@
 import express from "express";
-import {verifyToken} from "./Auth";
-import { createArticle, getOneArticle, deleteArticle, updateArticle, getAllArticle} from "../Controllers/blog";
+import {verifyToken} from "./Auth.js";
+import { createArticle, getOneArticle, deleteArticle, updateArticle, getAllArticle} from "../Controllers/blog.js";
 
 
 const router = express.Router();

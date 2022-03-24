@@ -11,11 +11,11 @@ var _bodyParser = _interopRequireDefault(require("body-parser"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-var _Auth = _interopRequireDefault(require("../src/Routers/Auth.js"));
+var _Auth = _interopRequireDefault(require("./Routers/Auth.js"));
 
-var _dbConn = _interopRequireDefault(require("../src/dbConn.js"));
+var _dbConn = _interopRequireDefault(require("./dbConn.js"));
 
-var _blog = _interopRequireDefault(require("../src/Routers/blog"));
+var _blog = _interopRequireDefault(require("./Routers/blog.js"));
 
 var _cors = _interopRequireDefault(require("cors"));
 
