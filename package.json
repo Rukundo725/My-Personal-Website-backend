@@ -12,7 +12,7 @@
     "coverage:badge": "coverage-badge-creator --config './badge-coverage-config.json'",
     "make-badges": "istanbul-badges-readme",
     "swagger-autogen": "node ./swagger.js",
-    "heroku": "node src/index.js"
+    "heroku": "node build/index.js"
 
    
   
