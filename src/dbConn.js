@@ -4,10 +4,8 @@ import express from 'express'
 // connect to mongodb & listen for requests
 const connectDb = async () =>{
     try{
-        await mongoose.connect(process.env.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+        await mongoose.connect(process.env.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });await parseAndLoadPlanetsData();
     }catch(err){
         console.error(err);
     }
 }
-
-export default connectDb;
