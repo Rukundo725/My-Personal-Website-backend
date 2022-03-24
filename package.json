@@ -11,8 +11,8 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coverage:badge": "coverage-badge-creator --config './badge-coverage-config.json'",
     "make-badges": "istanbul-badges-readme",
-    "heroku config":"set NPM_CONFIG_PRODUCTION=false",
-    "heroku": "node build/index.js"
+    "heroku config":"set USE_NPM_INSTALL=true",
+    "heroku": "babel-node build/index.js"
 
    
   
