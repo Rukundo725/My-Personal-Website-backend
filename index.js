@@ -32,14 +32,16 @@ const swaggerDefinition = {
       {
         url: "http://localhost:4000",
         description: "Development server",
+
       },
     ],
+    apis: ["./**/**/*.js"],
   };
    
   const options = {
     swaggerDefinition,
     // Paths to files containing OpenAPI definitions
-    apis: ["../src/Routers/blog.js"],
+   
     
   };
   

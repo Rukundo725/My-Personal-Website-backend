@@ -5,32 +5,27 @@ import { createArticle, getOneArticle, deleteArticle, updateArticle, getAllArtic
 
 const router = express.Router();
 
-/**
- * @swagger
- * /blog/add:
- *   post:
- *     tags:
- *     - BLOG
- *     summary: Create blog article.
- *     responses:
- *       200:
- *         description: Article created
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 title:
- *                   type: string
- *                   description: blog title.
- *                   example: lorem ipsum
- *                 body:
- *                   type: string
- *                   description: The blog content.
- *                   example: lorem ipsum generator....
- */
 
 router.post("/add", verifyToken, createArticle);
+/**
+ * @swagger
+ * /blog/{id}:
+ *   get:
+ *     tags:
+ *     - BLOG
+ *     summary: Retrieve a single blog article.
+ *     description: Retrieve a single blog can be used to show Visitors blog article from API to blog page.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric ID of the blog article to retrieve.
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         ...
+ */
 router.get("/:id",  getOneArticle);
 router.delete("/:id", verifyToken,  deleteArticle);
 router.put("/:id", verifyToken, updateArticle);
