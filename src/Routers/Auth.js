@@ -4,6 +4,38 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 var router = express.Router();
 
+/**
+ * @swagger
+ * /api/user/register:
+ *   post:
+ *     tags:
+ *     - USER
+ *     summary: Create user.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *                 description: The username.
+ *               email:
+ *                 type: string
+ *                 description: The user's email.
+ *               password:
+ *                 type: string
+ *                 description: The user's password.
+ *     responses:
+ *       '201':
+ *             description: User created.
+ *       '400':
+ *             description: Bad request.
+ *       '409':
+ *             description: User already exist.
+ */
+
 //register end point
 router.post("/register", async (req, res) => {
   try {
@@ -24,7 +56,32 @@ router.post("/register", async (req, res) => {
   }
 });
 
-
+/**
+ * @swagger
+ * /api/user/login:
+ *   post:
+ *     tags:
+ *     - USER
+ *     summary: Login user.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *                 description: The username.
+ *               password:
+ *                 type: string
+ *                 description: The user's password.
+ *     responses:
+ *      200:
+ *        description: Wrong user
+ *      400:
+ *        description: Wrong password
+ */
 //login endpoint
 router.post("/login", async (req, res) => {
   try {

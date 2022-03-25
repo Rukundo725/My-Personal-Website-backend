@@ -38,7 +38,7 @@ const swaggerDefinition = {
   const options = {
     swaggerDefinition,
     // Paths to files containing OpenAPI definitions
-    apis: ["./src/Routers/blog.js"],
+    apis: ["./src/Routers/*.js"],
     
   };
   
