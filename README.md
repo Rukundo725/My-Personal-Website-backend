@@ -3,7 +3,6 @@
 ![Branches](https://img.shields.io/badge/branches-85.18%25-yellow.svg?style=flat)
 ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat)
 ![Lines](https://img.shields.io/badge/lines-91.75%25-brightgreen.svg?style=flat)
-[![Travis Build Status](https://app.travis-ci.com/Rukundo725/My-Personal-Website-backend.svg?branch=main)](https://app.travis-ci.com/Rukundo725/My-Personal-Website-backend)
 ![Github workflow](https://github.com/Rukundo725/My-Personal-Website-backend/actions/workflows/CI.yml/badge.svg)
 
 
