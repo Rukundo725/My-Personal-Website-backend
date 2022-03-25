@@ -14,4 +14,5 @@ const blogSchema = new Schema({
 }, { timestamps: true });
 
 const Article = mongoose.model('articles', blogSchema);
-module.exports = Article;
+
+export default Article;
