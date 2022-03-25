@@ -1,8 +1,8 @@
-![](https://img.shields.io/badge/Coverage-92%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)
-![Statements](https://img.shields.io/badge/statements-92.45%25-brightgreen.svg?style=flat)
-![Branches](https://img.shields.io/badge/branches-85.18%25-yellow.svg?style=flat)
+![](https://img.shields.io/badge/Coverage-94%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)
+![Statements](https://img.shields.io/badge/statements-93.63%25-brightgreen.svg?style=flat)
+![Branches](https://img.shields.io/badge/branches-87.5%25-yellow.svg?style=flat)
 ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat)
-![Lines](https://img.shields.io/badge/lines-91.75%25-brightgreen.svg?style=flat)
+![Lines](https://img.shields.io/badge/lines-93.05%25-brightgreen.svg?style=flat)
 ![Github workflow](https://github.com/Rukundo725/My-Personal-Website-backend/actions/workflows/CI.yml/badge.svg)
 
 ![plot](./assets/mvc_express.png)
@@ -153,11 +153,11 @@ yarn add --dev coverage-badge-creator
       Insert one of the following keys anywhere in your README. These will be replaced by the coverage-badge-creator with the appropriate badge.
 
     The following keys are available:
-     * $coverage$
-     * $statements$
-     * $branches$
-     * $functions$
-     * $lines$
+     * ![](https://img.shields.io/badge/Coverage-94%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)
+     * ![](https://img.shields.io/badge/Coverage-94%25-83A603.svg?prefix=$statements$)
+     * ![](https://img.shields.io/badge/Coverage-88%25-83A603.svg?prefix=$branches$)
+     * ![](https://img.shields.io/badge/Coverage-100%25-83A603.svg?prefix=$functions$)
+     * ![](https://img.shields.io/badge/Coverage-93%25-83A603.svg?prefix=$lines$)
  
     _important are also the surrounding dollar signs_  
     
