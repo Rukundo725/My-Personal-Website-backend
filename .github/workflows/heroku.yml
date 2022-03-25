@@ -1,7 +1,7 @@
 name: Deploy
 on:
   push:
-    branches: [Testing]
+    branches: [Swagger-Doc]
   workflow_dispatch:
 jobs:
   build:
