@@ -5,7 +5,7 @@ import authRoute from "./Routers/Auth.js";
 import connectDb from './dbConn.js';
 import blogRoute from "./Routers/blog.js";
 import cors from "cors";
-import swaggerJSDoc from "swagger-jsdoc";
+import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from "swagger-ui-express";
 
 
@@ -23,7 +23,6 @@ mongoose.connection.once('open', () => {
 
 //swagger definition
 const swaggerDefinition = {
-    openapi: "3.0.0",
     info: {
       title: "Express API for My Blog Articles",
       version: "1.0.0",
@@ -39,7 +38,7 @@ const swaggerDefinition = {
   const options = {
     swaggerDefinition,
     // Paths to files containing OpenAPI definitions
-    apis: ["./Routers/blog.js"],
+    apis: ["./src/Routers/blog.js"],
     
   };
   
