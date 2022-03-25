@@ -5,8 +5,7 @@
 ![Lines](https://img.shields.io/badge/lines-91.75%25-brightgreen.svg?style=flat)
 ![Github workflow](https://github.com/Rukundo725/My-Personal-Website-backend/actions/workflows/CI.yml/badge.svg)
 
-
-
+![plot](./assets/mvc_express.png)
 
 # **Project Summary**
 You are expected to create all the endpoints required to meet all the requirements listed under the required features section and ensure that you persist data with a database. You are  required to use mongoose which will  help you write to and read from your mongoDb database. The endpoints are to be secured with JWT.
