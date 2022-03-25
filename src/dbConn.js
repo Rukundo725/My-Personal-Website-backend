@@ -4,7 +4,7 @@ import express from 'express'
 // connect to mongodb & listen for requests
 const connectDb = async () =>{
     try{
-        await mongoose.connect(process.env.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+        mongoose.connect(process.env.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
     }catch(err){
         console.error(err);
     }

@@ -9,9 +9,9 @@ before_install:
    - pip install --user codecov
 install:
   - npm install
-script:
-  - npm test
-after_success: 
-   - codecov --file coverage/lcov.info --disable search
+# script:
+#   - npm test
+# after_success: 
+#    - codecov --file coverage/lcov.info --disable search
 
  

@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
     jwt.sign(
       others,
       process.env.SECRET,
-      { expiresIn: "600s" },
+      { expiresIn: "3000s" },
       (err, token) => {
         res.status(200).json({ status: "success", code: "200", message: "LoggedIn", token });
       }
