@@ -1,6 +1,6 @@
 import express from "express";
 import {verifyToken} from "./Auth";
-import { sendComment, getComments} from "../Controllers/message";
+import { sendComment, getComments} from "../Controllers/comment";
 
 const router = express.Router();
 
