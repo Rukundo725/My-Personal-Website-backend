@@ -3,7 +3,7 @@ import Comment from "../../models/comment";
 export const sendComment = async (req, res) => {
   try {
     await Comment.create(req.body);
-    res.status(201).json({ status: "success", code: "200",message: "Your comment is highly appreciated" });
+    res.status(201).json({ status: "success", code: "201",message: "Your comment is highly appreciated" });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ status: "error", code: "500",message: "Comment not sent, internal_server_error" });

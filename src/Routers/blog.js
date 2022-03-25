@@ -11,9 +11,5 @@ router.delete("/:id", verifyToken,  deleteArticle);
 router.put("/:id", verifyToken, updateArticle);
 router.get("/", getAllArticle);
 
-
-
-
-
 export default router;
 

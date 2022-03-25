@@ -3,7 +3,7 @@ import Message from "../../models/message";
 export const sendMessage = async (req, res) => {
   try {
     await Message.create(req.body);
-    res.status(201).json({ status: "success", code: "200",message: "Message sent" });
+    res.status(201).json({ status: "success", code: "201",message: "Message sent" });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ status: "error", code: "500",message: "Message not sent, internal_server_error" });
