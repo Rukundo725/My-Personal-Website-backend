@@ -424,7 +424,7 @@ describe('Login Routes TEST', () => {
                     password: process.env.password
                 };
                 chai.request(app)
-                    .put("/api/user/log")
+                    .post("/api/user/log")
                     .send(LoginInfo)
                     .end((err, response)=> {
                         response.should.have.status(404); 
