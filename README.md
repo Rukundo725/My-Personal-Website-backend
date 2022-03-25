@@ -152,12 +152,14 @@ yarn add --dev coverage-badge-creator
       ```sh
       Insert one of the following keys anywhere in your README. These will be replaced by the coverage-badge-creator with the appropriate badge.
 
-    The following keys are available:
-     * ![](https://img.shields.io/badge/Coverage-94%25-83A603.svg?style=flat&logo=kotlin&logoColor=white&color=green&prefix=$coverage$)
-     * ![](https://img.shields.io/badge/Coverage-94%25-83A603.svg?prefix=$statements$)
-     * ![](https://img.shields.io/badge/Coverage-88%25-83A603.svg?prefix=$branches$)
-     * ![](https://img.shields.io/badge/Coverage-100%25-83A603.svg?prefix=$functions$)
-     * ![](https://img.shields.io/badge/Coverage-93%25-83A603.svg?prefix=$lines$)
+     The following keys are available:
+     ```sh
+     * $coverage$
+     * $statements$
+     * $branches$
+     * $functions$
+     * $lines$
+     ```
  
     _important are also the surrounding dollar signs_  
     
