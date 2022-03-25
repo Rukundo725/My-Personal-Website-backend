@@ -1,4 +1,4 @@
-import Message from "../../models/comment";
+import Message from "../../models/message";
 //send messages
 export const sendMessage = async (req, res) => {
   try {
