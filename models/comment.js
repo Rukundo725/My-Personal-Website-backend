@@ -1,21 +1,17 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const messageSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
+const commentSchema = new Schema({
   email: {
     type: String,
     required: true
   },
  
-  message: {
+  comment: {
     type: String,
     required: true
   },
 }, { timestamps: true });
 
-const Message = mongoose.model('messages', messageSchema);
-module.exports = Message;
+const Comment = mongoose.model('messages', commentSchema);
+module.exports = Comment;
