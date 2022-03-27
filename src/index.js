@@ -7,11 +7,15 @@ import blogRoute from "./Routers/blog";
 import commentRoute from "./Routers/comment";
 import messageRoute from "./Routers/message";
 import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from '../swagger/Swagger_Blog_Api.json';
+
 
 const app = express();
 
 // Connect to MongoDB
 connectDb();
+
 
 
 // middleware 
@@ -22,6 +26,7 @@ app.use('/api/user', authRoute);
 app.use('/api/blog', blogRoute);
 app.use('/api/comment', commentRoute);
 app.use('/api/message', messageRoute);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const port = process.env.PORT ||4000;
 
 // Connect to MongoDB

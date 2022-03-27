@@ -1,0 +1,333 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "PERSONAL WEB CRUD",
+      "description": "My personal website Project Application API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+
+    "host": "localhost:4000",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "BLOG",
+        "description": "API for blog articles in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+
+    "paths": {
+
+      "/blog/add": {
+        "post": {
+          "tags": [
+            "Articles"
+          ],
+          "summary": "Create new Article in Blog",
+        
+          "parameters": [
+            {
+              "name": "BLOG",
+              "in": "body",
+              "description": "Article that we want to create",
+              "schema": {
+                "$ref": "#/definitions/Blog"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Article created",
+              "schema": {
+                "$ref": "#/definitions/Blog"
+              }
+            }
+          }
+        } 
+      }, 
+
+      "/blog/": {
+        "get": {
+            "tags": [
+              "Articles"
+            ],
+            "summary": "Get all Articles of the blog",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Blog"
+                }
+              }
+            }
+          }
+      },
+
+      "/blog/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of blog that we want to find",
+            "type": "string"
+          }
+        ],
+
+        "delete": {
+          "summary": "Delete an article with given ID",
+          "tags": [
+            "Articles"
+          ],
+
+          "responses": {
+            "200": {
+              "description": "Article is deleted",
+              "schema": {
+                "$ref": "#/definitions/Blog"
+              }
+            }
+          }
+        },
+
+        "get": {
+          "summary": "get one article with given ID",
+          "tags": [
+            "Articles"
+          ],
+          "responses": {
+            "200": {
+              "description": "article fetched",
+              "schema": {
+                "$ref": "#/definitions/Blog"
+              }
+            }
+          }
+        },
+        
+        "put": {
+          "summary": "Update Article with given ID",
+          "tags": [
+            "Articles"
+          ],
+          "parameters": [
+            {
+              "name": "article",
+              "in": "body",
+              "description": "Article with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/updateArticle"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Article is updated",
+              "schema": {
+                "$ref": "#/definitions/Blog"
+              }
+            }
+          }
+        }
+      },
+
+
+
+      "/message/send": {
+        "post": {
+          "tags": [
+            "Messages"
+          ],
+          "summary": "Send a new Message from the user",
+        
+          "parameters": [
+            {
+              "name": "MESSAGE",
+              "in": "body",
+              "description": "Message that we want to send",
+              "schema": {
+                "$ref": "#/definitions/Message"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Message sent",
+              "schema": {
+                "$ref": "#/definitions/Message"
+              }
+            }
+          }
+        } 
+      },
+
+      "/message/": {
+        "get": {
+            "tags": [
+              "Messages"
+            ],
+            "summary": "Get all Messages of the blog",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Message"
+                }
+              }
+            }
+          }
+      },
+
+      "/comment/send": {
+        "post": {
+          "tags": [
+            "Comments"
+          ],
+          "summary": "Send a new Comment from the user",
+        
+          "parameters": [
+            {
+              "name": "COMMENT",
+              "in": "body",
+              "description": "Comment that we want to send",
+              "schema": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "comment sent",
+              "schema": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          }
+        } 
+      },
+
+      "/comment/": {
+        "get": {
+            "tags": [
+              "Comments"
+            ],
+            "summary": "Get all Comments of the blog",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/definitions/Comment"
+                }
+              }
+            }
+          }
+      }
+      
+
+    },
+    "definitions": {
+      "Blog": {
+        "required": [
+          "title",
+          "body"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+         
+        }
+      },
+      "updateArticler": {
+        "required": [
+          "title",
+          "body"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+         
+         
+        }
+      },
+      "Blogs": {
+        "type": "array",
+        "$ref": "#/definitions/Message"
+      },
+
+      "Message": {
+        "required": [
+          "name",
+          "email",
+          "message"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+            
+          }
+         
+        }
+        
+      },
+      "Messages": {
+        "type": "array",
+        "$ref": "#/definitions/Message"
+      },
+      "Comment": {
+        "required": [
+          "email",
+          "comment"
+        ],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          }
+         
+        }
+        
+      },
+      "Comments": {
+        "type": "array",
+        "$ref": "#/definitions/Comment"
+      }
+     
+    }
+  }

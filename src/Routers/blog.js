@@ -5,6 +5,7 @@ import { createArticle, getOneArticle, deleteArticle, updateArticle, getAllArtic
 
 const router = express.Router();
 
+
 router.post("/add", verifyToken, createArticle);
 router.get("/:id",  getOneArticle);
 router.delete("/:id", verifyToken,  deleteArticle);
